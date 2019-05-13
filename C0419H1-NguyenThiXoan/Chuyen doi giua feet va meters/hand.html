@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    <input type="number" id="inputfeet" placeholder="Feet"
+    oninput="convertLength(this.value)" onchange="convertLength()">
+</p>
+<p>Meters: <span id="outputmeters"></span></p>
+<script>
+    function convertLength(num){
+        num= parseFloat(num);
+        document.getElementById("outputmeters").innerHTML= num*0.305;
+
+
+    }
+</script>
+
+</body>
+</html>
