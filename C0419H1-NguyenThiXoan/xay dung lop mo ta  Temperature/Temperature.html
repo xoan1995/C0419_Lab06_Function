@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Temperature = function (c) {
+        this.c = c;
+        this.setCelsius=function(c){
+            this.c= c;
+        };
+        this.getK = function () {
+            return (this.c * 1.8) + 32;
+        };
+        this.getF = function () {
+            return this.c + 273.15;
+        }
+    };
+    let temperature = new Temperature(5);
+    temperature.setCelsius(5);
+    alert (temperature.getF()+ ' độ F');
+    alert(temperature.getK()+ ' độ K');
+
+
+</script>
+
+</body>
+</html>

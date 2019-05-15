@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ratangle</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300px" height="150px" style="border:1px solid #d3d3d3;">
+<script>
+    let Ratangle = function (width, height) {
+        this.width = width;
+        this.height = height;
+
+        this.setWidth = function (width) {
+            this.width = width;
+        };
+        this.setHeight = function (height) {
+            this.height = height;
+        };
+        this.getWidth = function () {
+            return this.width = width;
+        };
+        this.getHeight = function () {
+            return this.height = height;
+        };
+        this.getS = function () {
+            return this.width * this.height;
+        };
+        this.getC = function () {
+            return (this.width + this.height) * 2;
+        };
+    };
+    let ratangle = new Ratangle(5,8);
+    ratangle.setWidth(90);
+    ratangle.setHeight(50);
+    alert('Dien tich cua hinh chu nhat la: '+ ratangle.getS());
+    alert('Chu vi cua hinh chu nhat la : '+ ratangle.getC());
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.strokeRect(20, 20, 110, 70);
+
+</script>
+
+</body>
+</html>
