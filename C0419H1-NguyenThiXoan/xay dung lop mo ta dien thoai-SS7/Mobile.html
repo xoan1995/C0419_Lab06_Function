@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Mobile = function (name) {
+        this.name = name;
+        this.pin = 100;
+        this.inbox = [];
+        this.output = [];
+        this.status = true;
+        this.message = '';
+        this.checkStatus = function () {
+            if (this.Status) {
+                console.log('dien thoai dang bat');
+            } else {
+                console.log('dien thoai dang tat');
+            }
+        };
+        this.turnOn = function () {
+            this.Status = true;
+        };
+        this.turOff = function () {
+            this.Status = false;
+        };
+        this.checkPin=function () {
+            if(0<this.pin<100){
+                this.pin--;
+                return this.pin;
+            }
+        };
+        this.setPin = function () {
+            if (this.pin < 100) {
+                this.pin++;
+                return this.pin;
+            }
+        };
+        this.writeMessage = function (new_Message) {
+            this.Message = new_Message;
+            this.checkPin();
+        };
+        this.sendMessage = function (phone) {
+            phone.inbox.push(this.Message);
+            this.output.push(this.Message);
+            this.checkPin();
+        };
+        this.readinbox= function () {
+            return this.inbox;
+            this.checkPin();
+        };
+        this.readoutbox=function () {
+            return this.output;
+            this.checkPin();
+        };
+    };
+    let Nokia= new Mobile("nokia");
+    let Iphone= new Mobile("iphone");
+
+    Nokia.writeMessage('Hello iphone');
+    Nokia.sendMessage(Iphone);
+    Iphone.writeMessage('what are you doing?');
+    Iphone.sendMessage(Nokia);
+    console.log("outbox Iphone= "+ Iphone.readoutbox(Iphone));
+    console.log("inbox Iphone= " + Iphone.readinbox(Iphone));
+    console.log("outbox Nokia=" + Nokia.readoutbox(Nokia));
+    console.log("inbox Nokia= "+ Nokia.readinbox(Nokia));
+    console.log(Nokia.checkPin());
+
+</script>
+</body>
+</html>
